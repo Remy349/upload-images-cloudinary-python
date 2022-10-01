@@ -2,8 +2,47 @@
 
 {% block content %}
 <section class="upload">
-  <div class="upload__container">
-    <div class="upload__forms"></div>
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  {% for message in messages %}
+  <div class="upload__message container">
+    <p class="upload__message-text">
+      {{ message }}
+    </p>
+    <i class="bx bx-x upload__message-icon"></i>
+  </div>
+  {% endfor %}
+  {% endif %}
+  {% endwith %}
+  <div class="upload__container container">
+    <div class="upload__forms">
+      <div class="upload__forms-container">
+        <form
+          action="{{ url_for('add_image') }}"
+          class="upload__form"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          <h3 class="upload__form-title">
+            Choose an image
+          </h3>
+          <div class="upload__form-inputs">
+            <input
+              class="upload__form-input"
+              type="file"
+              name="file"
+              accept="image/*"
+            />
+          </div>
+          <div class="upload__form-btns">
+            <button class="upload__form-btns_submit" type="submit">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="upload__images"></div>
   </div>
 </section>
 {% endblock content %}
