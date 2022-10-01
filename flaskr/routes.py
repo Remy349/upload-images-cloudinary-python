@@ -1,6 +1,8 @@
 from flask import flash, redirect, render_template, request, url_for
 from cloudinary.uploader import upload
-from flaskr import app
+from flaskr import app, db
+
+from flaskr.models import Image
 
 ALLOWED_EXTENSIONS = {"png", "jpg", "gif", "jpeg"}
 
@@ -24,11 +26,24 @@ def add_image():
         return redirect(url_for("index"))
 
     if file and allowed_file(file.filename):
-        upload_result = upload(file)
-        print(upload_result)
+        filename = file.filename
+
+        upload_result = upload(file,
+                               resource_type="image",
+                               folder="/test")
+
+        public_id = upload_result["public_id"]
+        secure_url = upload_result["secure_url"]
+
+        new_image = Image(public_id=public_id, secure_url=secure_url,
+                          filename=filename)
+
+        db.session.add(new_image)
+        db.session.commit()
+
+        flash("Image saved successfully!")
+        return redirect(url_for("index"))
     else:
         flash("File type not allowed!")
         return redirect(url_for("index"))
-
-    return redirect(url_for("index"))
 
