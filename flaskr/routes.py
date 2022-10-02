@@ -1,5 +1,5 @@
 from flask import flash, redirect, render_template, request, url_for
-from cloudinary.uploader import upload
+from cloudinary.uploader import upload, destroy
 from flaskr import app, db
 
 from flaskr.models import Image
@@ -60,6 +60,14 @@ def add_image():
 
 @app.route("/delete_image/<int:image_id>", methods=["GET"])
 def delete_image(image_id):
-    print(image_id)
+    delete_image = Image.query.get_or_404(image_id)
+    public_id = delete_image.public_id
+
+    destroy(public_id, resource_type="image")
+
+    db.session.delete(delete_image)
+    db.session.commit()
+
+    flash("Image successfully deleted!")
     return redirect(url_for("index"))
 
