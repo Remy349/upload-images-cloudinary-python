@@ -6,9 +6,9 @@ from config import Config
 app = Flask(__name__)
 
 if not Config.SQLALCHEMY_DATABASE_URI:
-    raise RuntimeError("DATABASE_URI is not set!")
+    raise RuntimeError("DATABASE_URL is not set!")
 else:
-    print("DATABASE_URI is ok!!!!")
+    print("DATABASE_URL is ok!!!!")
 
 app.config.from_object(Config)
 
