@@ -183,3 +183,52 @@ button { font-family: inherit; }
   user-select: none;
 }
 
+/* RESPONSIVE DESIGN */
+@media screen and (max-width: 1100px) {
+  .container { max-width: 968px; }
+}
+
+@media screen and (max-width: 968px) {
+  .container { max-width: 768px; }
+
+  .upload {
+    &__container { grid-template-columns: 50% auto; }
+
+    &__images {
+      &-cards { grid-template-columns: 1fr; }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container { max-width: 568px; }
+
+  .upload {
+    &__message { width: auto; }
+
+    &__container {
+      grid-template-columns: 1fr;
+      row-gap: 3rem;
+    }
+
+    &__images {
+      &-cards { grid-template-columns: 1fr 1fr; }
+    }
+  }
+}
+
+@media screen and (max-width: 568px) {
+  .container {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+
+  .upload {
+    &__message { padding: .7rem 1rem; }
+    
+    &__images {
+      &-cards { grid-template-columns: 1fr; }
+    }
+  }
+}
+
