@@ -14,7 +14,17 @@ def allowed_file(filename):
 
 @app.route("/", methods=["GET"])
 def index():
-    return render_template("index.html")
+    page = request.args.get("page", 1, type=int)
+    images = Image.query.paginate(
+        page, app.config["IMAGES_PER_PAGE"], False)
+
+    next_url = url_for("index", page=images.next_num) \
+        if images.has_next else None
+    prev_url = url_for("index", page=images.prev_num) \
+        if images.has_prev else None
+
+    return render_template("index.html", images=images.items,
+                           next_url=next_url, prev_url=prev_url)
 
 
 @app.route("/add_image", methods=["POST"])
@@ -46,4 +56,10 @@ def add_image():
     else:
         flash("File type not allowed!")
         return redirect(url_for("index"))
+
+
+@app.route("/delete_image/<int:image_id>", methods=["GET"])
+def delete_image(image_id):
+    print(image_id)
+    return redirect(url_for("index"))
 
