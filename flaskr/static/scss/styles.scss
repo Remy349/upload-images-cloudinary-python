@@ -1,6 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+$primary-color: #113F67;
+$red-color: #F32424;
+$white-color: #fff;
+$green-color: #3D8361;
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body { font-family: 'Roboto', sans-serif; }
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+button { font-family: inherit; }
+
+.main { overflow-x: hidden; }
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1100px;
+}
+
+.upload {
+  margin-top: 3rem;
+  margin-bottom: 4rem;
+
+  &__message {
+    width: 100%;
+    background-color: $primary-color;
+    padding: .7rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    border-radius: .5rem;
+    color: $white-color;
+    box-shadow: 0 4px 20px rgba(0,0,0,.3);
+
+    &-text { font-size: 1.2rem; }
+
+    &-icon {
+      font-size: 2rem;
+      cursor: pointer;
+    }
+  }
+
+  &__container {
+    display: grid;
+    grid-template-columns: 40% auto;
+    column-gap: 3rem;
+  }
+
+  &__form {
+    display: grid;
+    padding: 3rem 2rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,.3);
+    border-radius: .5rem;
+    row-gap: 1.5rem;
+    width: 100%;
+
+    &-title {
+      text-align: center;
+      font-size: 1.5rem;
+    }
+
+    &-input {
+      background-color: #ccc;
+      font-size: 1.2rem;
+      width: 100%;
+      font-family: 'Roboto', sans-serif;
+      outline: none;
+      border-radius: .5rem;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    &-btns {
+      &_submit {
+        border: none;
+        outline: none;
+        font-size: 1.2rem;
+        color: $white-color;
+        background-color: $green-color;
+        border-radius: .5rem;
+        width: 100%;
+        padding: .7rem 0;
+        text-align: center;
+        cursor: pointer;
+        user-select: none;
+      }
+    }
+  }
+
+  &__images {
+    &-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 2rem;
+      row-gap: 2rem;
+
+      &_card {
+        padding: 2rem 1rem;
+        border-radius: .5rem;
+        box-shadow: 0 4px 20px rgba(0,0,0,.3);
+
+        &_filename {
+          margin-top: 1rem;
+          margin-bottom: 1.5rem;
+          text-align: left;
+          font-size: 1.3rem;
+        }
+
+        &_btn {
+          &_delete {
+            background-color: $red-color;
+            color: $white-color;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            column-gap: .5rem;
+            border-radius: .5rem;
+            padding: .7rem 0;
+            font-size: 1.2rem;
+            text-decoration: none;
+            cursor: pointer;
+            user-select: none;
+
+            & i { font-size: 1.5rem; }
+          }
+        }
+      }
+    }
+
+    &-pagination {
+      margin-top: 3rem;
+
+      &_container {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+
+      &_left,
+      &_right {
+        background-color: $primary-color;
+        color: $white-color;
+        text-decoration: none;
+        box-shadow: 0 4px 20px rgba(0,0,0,.3);
+        border-radius: 50%;
+        height: 2.9rem;
+        width: 2.9rem;
+        cursor: pointer;
+        user-select: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        & i { font-size: 2rem; }
+      }
+    }
+  }
+}
+
+::-webkit-file-upload-button {
+  background-color: cornflowerblue;
+  font-family: 'Roboto', sans-serif;
+  border: none;
+  border-radius: .5rem;
+  outline: none;
+  font-size: 1.2rem;
+  padding: .7rem .5rem;
+  color: $white-color;
+  cursor: pointer;
+  user-select: none;
 }
 
