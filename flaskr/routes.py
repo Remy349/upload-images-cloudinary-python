@@ -1,3 +1,4 @@
+import cloudinary.api
 from flask import flash, redirect, render_template, request, url_for
 from cloudinary.uploader import upload, destroy
 from flaskr import app, db
