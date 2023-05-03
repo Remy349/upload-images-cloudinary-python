@@ -25,4 +25,3 @@ migrate = Migrate(app, db, compare_type=True)
 
 from flaskr import routes
 from flaskr import models
-

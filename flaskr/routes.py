@@ -70,4 +70,3 @@ def delete_image(image_id):
 
     flash("Image successfully deleted!")
     return redirect(url_for("index"))
-

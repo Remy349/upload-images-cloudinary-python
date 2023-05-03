@@ -60,4 +60,3 @@ To get this data from Cloudinary, you must create your own account, it is very e
 ```
 
 ### Developed by Santiago de Jesús Moraga Caldera - Remy349(GitHub)
-

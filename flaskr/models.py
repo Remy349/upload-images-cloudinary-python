@@ -15,4 +15,3 @@ class Image(db.Model):
                 secure_url: {self.secure_url},
                 filename: {self.filename}
         """
-
