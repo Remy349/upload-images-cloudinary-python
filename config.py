@@ -8,6 +8,7 @@ load_dotenv(os.path.join(basedir, ".env"))
 
 class Config(object):
     SECRET_KEY = os.getenv("SECRET_KEY")
-    SQLALCHEMY_DATABASE_URI = os.getenv("DATABASE_URL")
+    SQLALCHEMY_DATABASE_URI = "sqlite:////" + os.path.join(
+            basedir, "local-database.db")
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     IMAGES_PER_PAGE = 4
