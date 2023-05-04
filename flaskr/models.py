@@ -1,17 +1,17 @@
+import sqlalchemy as sa
 from flaskr import db
 
 
 class Image(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    public_id = db.Column(db.String(100), nullable=False)
-    secure_url = db.Column(db.String(140), nullable=False)
-    filename= db.Column(db.String(60))
+    id = sa.Column(sa.Integer, primary_key=True)
+    image_title = sa.Column(sa.String(20), nullable=False)
+    image_description = sa.Column(sa.String(150), default="No description")
+    secure_url = sa.Column(sa.String(180), nullable=False)
+    public_id = sa.Column(sa.String(80), nullable=False)
 
     def __repr__(self):
         return f"""
-            Image:
+            image:
                 id: {self.id},
-                public_id: {self.public_id},
-                secure_url: {self.secure_url},
-                filename: {self.filename}
+                image_title: {self.image_title}
         """
