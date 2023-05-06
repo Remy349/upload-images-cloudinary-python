@@ -1,90 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-<section class="upload">
-  {% with messages = get_flashed_messages() %}
-  {% if messages %}
-  {% for message in messages %}
-  <div class="upload__message container">
-    <p class="upload__message-text">
-      {{ message }}
-    </p>
-    <i class="bx bx-x upload__message-icon"></i>
+<section class="index">
+  <div class="index__forms">
+    <form action="" method="POST" class="index__form" enctype="multipart/form-data">
+      {{ form.hidden_tag() }}
+      {{ form.image_title(class_='index__form-input', placeholder='Title', autocomplete='off') }}
+      {{ form.image_file(class_='index__form-file') }}
+      {{ form.image_description(class_='index__form-textarea', placeholder='Description', rows='8') }}
+      {{ form.submit(class_='index__form-submit') }}
+    </form>
   </div>
-  {% endfor %}
-  {% endif %}
-  {% endwith %}
-  <div class="upload__container container">
-    <div class="upload__forms">
-      <div class="upload__forms-container">
-        <form
-          action="{{ url_for('add_image') }}"
-          class="upload__form"
-          method="POST"
-          enctype="multipart/form-data"
-        >
-          <h3 class="upload__form-title">
-            Choose an image
-          </h3>
-          <div class="upload__form-inputs">
-            <input
-              class="upload__form-input"
-              type="file"
-              name="file"
-              accept="image/*"
-            />
-          </div>
-          <div class="upload__form-btns">
-            <button class="upload__form-btns_submit" type="submit">
-              Submit
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-    <div class="upload__images">
-      <div class="upload__images-container">
-        {% if images|length < 1 %}
-        <div class="upload__images-empty"></div>
-        {% else %}
-        <div class="upload__images-cards">
-          {% for image in images %}
-          <div class="upload__images-cards_card">
-            <div class="upload__images-cards_card_image">
-              <img
-                class="upload__images-cards_card_img"
-                src="{{ image.secure_url }}"
-                alt="Image saved in Cloudinary"
-              />
-            </div>
-            <h3 class="upload__images-cards_card_filename">
-              {{ image.filename }}
-            </h3>
-            <div class="upload__images-cards_card_btn">
-              <a
-                href="{{ url_for('delete_image', image_id=image.id) }}"
-                class="upload__images-cards_card_btn_delete"
-              >
-                Delete
-                <i class="bx bxs-trash-alt"></i>
-              </a>
-            </div>
-          </div>
-          {% endfor %}
-        </div>
-        <div class="upload__images-pagination">
-          <div class="upload__images-pagination_container">
-            <a href="{{ prev_url or '#' }}" class="upload__images-pagination_left">
-              <i class='bx bx-left-arrow-alt'></i>
-            </a>
-            <a href="{{ next_url or '#' }}" class="upload__images-pagination_right">
-              <i class='bx bx-right-arrow-alt' ></i>
-            </a>
-          </div>
-        </div>
-        {% endif %}
-      </div>
-    </div>
+  <div class="">
+    
   </div>
 </section>
 {% endblock content %}
