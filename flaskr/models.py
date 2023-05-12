@@ -5,7 +5,7 @@ from flaskr import db
 class Image(db.Model):
     id = sa.Column(sa.Integer, primary_key=True)
     image_title = sa.Column(sa.String(20), nullable=False)
-    image_description = sa.Column(sa.String(150), default="No description")
+    image_description = sa.Column(sa.String(150), default=None)
     secure_url = sa.Column(sa.String(180), nullable=False)
     public_id = sa.Column(sa.String(80), nullable=False)
 
