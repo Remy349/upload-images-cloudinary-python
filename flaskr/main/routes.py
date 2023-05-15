@@ -1,4 +1,4 @@
-from cloudinary.uploader import upload
+from cloudinary.uploader import upload, destroy
 from flaskr import db
 from flask import Blueprint, flash, redirect, render_template, url_for
 from flaskr.main.forms import NewImageForm
@@ -55,3 +55,17 @@ def index():
         return redirect(url_for("main.index"))
 
     return render_template("index.html", form=form, images=images)
+
+
+@bp.route("/delete/<int:image_id>", methods=["GET"])
+def delete_image(image_id):
+    image = db.get_or_404(Image, image_id)
+
+    destroy(image.public_id, resource_type="image")
+
+    db.session.delete(image)
+    db.session.commit()
+
+    flash("Image successfully deleted!", "success")
+
+    return redirect(url_for("main.index"))

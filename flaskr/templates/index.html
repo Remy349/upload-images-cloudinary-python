@@ -23,7 +23,10 @@
           <h3>{{ image.image_title }}</h3>
           <p>{{ image.image_description }}</p>
           <div class="index__content-images_card_body_delete">
-            <a href="" class="index__content-images_card_body_delete_btn">
+            <a
+              href="{{ url_for('main.delete_image', image_id=image.id) }}"
+              class="index__content-images_card_body_delete_btn"
+            >
               Delete
             </a>
           </div>
