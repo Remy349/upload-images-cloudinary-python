@@ -3,7 +3,7 @@ A simple application with the intention of showing how to upload your images to 
 
 It was developed with technologies such as Python/Flask, HTML, SCSS, to store the data obtained from Cloudinary a database was used, in this case PostgreSQL and to manage the models and migrations, Flask-SQLAlchemy and Flask-Migrate.
 
-![PREVIEW](flaskr/static/img/preview.png)
+![PREVIEW](./preview/preview.png)
 
 ## How to run it?
 
