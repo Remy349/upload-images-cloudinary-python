@@ -13,7 +13,12 @@
   </div>
   <div class="index__content">
     {% if images|length < 1 %}
-    <h1>Empty</h1>
+    <div class="index__content-empty">
+      <img class="index__content-empty_img" src="{{ url_for('static', filename='img/empty.png') }}" />
+      <p class="index__content-empty_text">
+        There are no images saved yet!
+      </p>
+    </div>
     {% else %}
     <div class="index__content-images">
       {% for image in images %}
