@@ -1,0 +1,29 @@
+@use '../utils/colors' as c;
+@use '../utils/mixins' as m;
+
+.notifications {
+  margin-bottom: 2rem;
+  position: sticky;
+  top: 1rem;
+
+  &__error {
+    box-shadow: 0 4px 20px rgba(240,84,84,.2);
+    @include m.notification(c.$Bittersweet, c.$White);
+  }
+
+  &__success {
+    box-shadow: 0 4px 20px rgba(65,123,90,.2);
+    @include m.notification(c.$Sea-green, c.$White)
+  }
+
+  &__close {
+    display: inherit;
+    cursor: pointer;
+
+    & svg {
+      width: 1.7rem;
+      height: 1.7rem;
+      fill: c.$White;
+    }
+  }
+}

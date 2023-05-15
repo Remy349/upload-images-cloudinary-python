@@ -1,10 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const messageBtnClose = document.querySelector('.upload__message-icon')
-  const message = document.querySelector('.upload__message')
+  const notifications = document.getElementById('notifications')
 
-  if (message) {
-    messageBtnClose.addEventListener('click', () => {
-      message.style.display = 'none'
+  if (notifications) {
+    const notificationCloseBtn = document.getElementById('notificationCloseBtn')
+
+    notificationCloseBtn.addEventListener('click', () => {
+      notifications.style.display = 'none'
     })
   }
 })

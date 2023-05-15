@@ -14,6 +14,10 @@ body {
   margin-top: 3rem;
 }
 
+ul {
+  list-style: none;
+}
+
 a {
   text-decoration: none;
 }
@@ -60,6 +64,45 @@ input[type=submit] {
 }
 .main__title span:last-child {
   color: #FBB13C;
+}
+
+.notifications {
+  margin-bottom: 2rem;
+  position: sticky;
+  top: 1rem;
+}
+.notifications__error {
+  box-shadow: 0 4px 20px rgba(240, 84, 84, 0.2);
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #FE5F55;
+  color: #ffffff;
+  padding: 0.7rem 1rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.notifications__success {
+  box-shadow: 0 4px 20px rgba(65, 123, 90, 0.2);
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #519872;
+  color: #ffffff;
+  padding: 0.7rem 1rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.notifications__close {
+  display: inherit;
+  cursor: pointer;
+}
+.notifications__close svg {
+  width: 1.7rem;
+  height: 1.7rem;
+  fill: #ffffff;
 }
 
 .index {

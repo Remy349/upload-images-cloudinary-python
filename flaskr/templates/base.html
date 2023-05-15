@@ -3,18 +3,21 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- BOXICONS -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!-- STYLES CSS -->
     <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
     <title>Upload images with Python - Cloudinary</title>
   </head>
   <body>
     <main class="main container">
+      {% include "partials/notification.html" %}
+
       <h1 class="main__title">
         Upload your images to <span>Cloudinary</span> using <span>Python</span> and Flask
       </h1>
       {% block content %} {% endblock content %}
     </main>
+
+    <!-- MAIN JS -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
   </body>
 </html>
