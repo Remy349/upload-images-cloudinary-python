@@ -12,7 +12,26 @@
     </form>
   </div>
   <div class="index__content">
-    
+    {% if images|length < 1 %}
+    <h1>Empty</h1>
+    {% else %}
+    <div class="index__content-images">
+      {% for image in images %}
+      <article class="index__content-images_card">
+        <img src="{{ image.secure_url }}" />
+        <div class="index__content-images_card_body">
+          <h3>{{ image.image_title }}</h3>
+          <p>{{ image.image_description }}</p>
+          <div class="index__content-images_card_body_delete">
+            <a href="" class="index__content-images_card_body_delete_btn">
+              Delete
+            </a>
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+    {% endif %}
   </div>
 </section>
 {% endblock content %}

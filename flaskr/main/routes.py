@@ -18,6 +18,8 @@ def allowed_file(filename):
 def index():
     form = NewImageForm()
 
+    images = db.session.execute(db.select(Image)).scalars().all()
+
     if form.validate_on_submit():
         image_title = form.image_title.data
         image_file = form.image_file.data
@@ -52,4 +54,4 @@ def index():
 
         return redirect(url_for("main.index"))
 
-    return render_template("index.html", form=form)
+    return render_template("index.html", form=form, images=images)
