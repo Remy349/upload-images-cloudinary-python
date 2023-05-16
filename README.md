@@ -1,9 +1,23 @@
-# upload-files-cloudinary-python
-A simple application with the intention of showing how to upload your images to an external service such as Cloudinary.
+# upload-images-cloudinary-python
+A simple application to demonstrate how you can upload and save your images in Cloudinary.
 
-It was developed with technologies such as Python/Flask, HTML, SCSS, to store the data obtained from Cloudinary a database was used, in this case PostgreSQL and to manage the models and migrations, Flask-SQLAlchemy and Flask-Migrate.
+## Table of contents
+
+- [Built with](#built-with)
+
+## Preview image
 
 ![PREVIEW](./preview/preview.png)
+
+## Built with
+
+- HTML
+- SASS
+- Python and Flask
+- Flask-SQLAlchemy
+- Flask-Migrate
+- Flask-WTF
+- SQLite (To save the data)
 
 ## How to run it?
 
