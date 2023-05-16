@@ -4,6 +4,7 @@ A simple application to demonstrate how you can upload and save your images in C
 ## Table of contents
 
 - [Built with](#built-with)
+- [How to run it?](#how-to-run-it)
 
 ## Preview image
 
@@ -17,7 +18,7 @@ A simple application to demonstrate how you can upload and save your images in C
 - Flask-SQLAlchemy
 - Flask-Migrate
 - Flask-WTF
-- SQLite (To save the data)
+- SQLite
 
 ## How to run it?
 
@@ -52,7 +53,6 @@ $ venv\Scripts\activate
 # .env - Example values
 
 SECRET_KEY=yourownsecretkey
-DATABASE_URL=postgresql://postgres:mypassword@localhost:5432/database-name
 CLOUDINARY_CLOUD_NAME=yourCloudinaryCLOUD_NAME
 CLOUDINARY_API_KEY=yourCloudinaryAPI_KEY
 CLOUDINARY_API_SECRET=yourCloudinaryAPI_SECRET
