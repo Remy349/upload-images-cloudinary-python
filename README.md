@@ -12,7 +12,7 @@ A simple application to demonstrate how you can upload and save your images in C
 ## Built with
 
 - HTML
-- SASS
+- SCSS
 - Python and Flask
 - Flask-SQLAlchemy
 - Flask-Migrate
