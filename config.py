@@ -11,4 +11,3 @@ class Config(object):
     SQLALCHEMY_DATABASE_URI = "sqlite:////" + os.path.join(
             basedir, "local-database.db")
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    IMAGES_PER_PAGE = 4
